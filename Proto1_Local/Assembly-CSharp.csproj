@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{504E2FC6-3AE8-A606-B649-9C7B51005580}</ProjectGuid>
+    <ProjectGuid>{17EDA5BF-6310-AD8B-D3D6-6FA3BDBB1935}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,19 +58,19 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\WeaponFather.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>E:/Curro/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -274,19 +274,19 @@
  <HintPath>E:/Curro/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements.Editor">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Repository/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>E:/Curro/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
