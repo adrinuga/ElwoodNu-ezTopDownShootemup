@@ -313,7 +313,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -389,6 +389,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: fce9e9f6f448cde45b5949e8d8773307,
+        type: 3}
+    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7025
+      objectReference: {fileID: 0}
+    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+      propertyPath: m_Size.y
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 178479737400404787, guid: 2b754f438f24f2f449c97220f47517b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -452,32 +477,28 @@ PrefabInstance:
     - target: {fileID: 178479736956379335, guid: 2b754f438f24f2f449c97220f47517b3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.154
       objectReference: {fileID: 0}
     - target: {fileID: 178479736956379335, guid: 2b754f438f24f2f449c97220f47517b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.142
+      value: -0.141
       objectReference: {fileID: 0}
-    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
+    - target: {fileID: 178479737400404780, guid: 2b754f438f24f2f449c97220f47517b3,
+        type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
-      propertyPath: m_WasSpriteAssigned
+      objectReference: {fileID: 21300000, guid: c483f5042572fce42b07d90853cb0db5,
+        type: 3}
+    - target: {fileID: 178479737400404780, guid: 2b754f438f24f2f449c97220f47517b3,
+        type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
-      propertyPath: m_Size.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
-      propertyPath: m_Size.y
-      value: 0.47
+    - target: {fileID: 178479737400404780, guid: 2b754f438f24f2f449c97220f47517b3,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
