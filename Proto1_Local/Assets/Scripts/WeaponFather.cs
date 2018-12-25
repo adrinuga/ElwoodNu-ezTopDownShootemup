@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class WeaponFather : MonoBehaviour
 {
-    public enum ShootTypes
+    public enum LoadTypes
     {
         Auto,
         SemiAuto,
         OnClick,
-        Burst,
+        ClickReload,
 
     }
-    public ShootTypes m_WeaponShootType;
+    public enum ShootTypes
+    {
+        Single,
+        Burst,
+        Spread
+
+    }
+    public LoadTypes m_WeaponLoadType;
+
+    public bool m_isLoaded = true;
+
 
     public Sprite m_MySprite;
     public List<string> m_Names;
@@ -30,5 +40,9 @@ public class WeaponFather : MonoBehaviour
         ;
 
 
+    public void Reload()
+    {
 
+    }
 }
+
