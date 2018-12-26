@@ -74,7 +74,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.7025, y: 0.47}
+  m_Size: {x: 0.25, y: 0.156}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MyGunRenderer: {fileID: 732949509}
   m_isLoaded: 1
-  m_actualAbility: 0
+  m_isReloading: 0
   m_defaultWeapon: {fileID: 6885245154669645767, guid: cca7483c6b562aa4f97303e88d91b951,
     type: 3}
   m_actualWeapon: {fileID: 0}
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2cc9eb4de10cc478fe7d12ade078b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_actualAbility: 0
   m_UpKey: 119
   m_DownKey: 115
   m_LeftKey: 97

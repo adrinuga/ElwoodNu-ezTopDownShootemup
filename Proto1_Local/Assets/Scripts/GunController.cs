@@ -42,15 +42,15 @@ public class GunController : MonoBehaviour
 
             case (WeaponFather.LoadTypes.SemiAuto):
 
-                if (Input.GetMouseButtonDown(0)&& m_isLoaded)
+                if (Input.GetMouseButtonDown(0)&& m_isLoaded )
                 {
                     Shoot(GetMouseDir(this), true);
                 }
                 break;
 
             case (WeaponFather.LoadTypes.ClickReload):
-                if (Input.GetMouseButtonDown(0))
-                {
+                if (Input.GetMouseButtonDown(0)&& !m_isReloading)
+                { 
                     if (m_isLoaded)
                     {
                         Shoot(GetMouseDir(this), false);
@@ -59,7 +59,8 @@ public class GunController : MonoBehaviour
                     }
                     else
                     {
-                        StartCoroutine(Reload());
+                        
+                            StartCoroutine(Reload());
                     }
                 }
 

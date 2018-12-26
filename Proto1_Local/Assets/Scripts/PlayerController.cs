@@ -108,7 +108,13 @@ public class PlayerController : MonoBehaviour
         l_MousePos.y -= l_objectPos.y;
 
         float l_angle = Mathf.Atan2(l_MousePos.y, l_MousePos.x) * Mathf.Rad2Deg;
-        m_WeaponTransform.rotation = Quaternion.Euler(m_WeaponTransform.eulerAngles.x, m_WeaponTransform.eulerAngles.y, l_angle);
+
+        if ((Mathf.Sign(transform.localScale.x) < 0))
+        {
+            l_angle += 180;
+        }
+
+        m_WeaponTransform.rotation = Quaternion.Euler(m_WeaponTransform.eulerAngles.x, m_WeaponTransform.eulerAngles.y, l_angle );
 
 
     }
@@ -118,23 +124,17 @@ public class PlayerController : MonoBehaviour
         float l_MouseY = m_GameCamera.ScreenToWorldPoint(Input.mousePosition).y;
 
         float l_WeaponZ = Mathf.Abs( m_WeaponTransform.position.z);
-        //float l_WeaponX = Mathf.Abs(m_WeaponTransform.position.x);
+        
 
         Vector3 l_scale = transform.localScale;
 
         if (l_MouseX > transform.position.x)
         {
-            m_WeaponRenderer.flipY = false;
-            m_WeaponRenderer.flipX = true;
-            //m_myRenderer.flipX = false;
-            l_scale.x = 1;
+            l_scale.x = Mathf.Abs(l_scale.x);
         }
         else
         {
-            m_WeaponRenderer.flipY = true;
-            m_WeaponRenderer.flipX = false;
-            // m_myRenderer.flipX = true;
-            // l_WeaponX *= -1;
+           
             l_scale.x = -1;
         }
             
