@@ -49,8 +49,8 @@ MonoBehaviour:
   m_BulletRb: {fileID: 7454312738212923692}
   m_MyBulletType: 0
   m_BulletRenderer: {fileID: 7680780605813277417}
-  m_DistanceDuration: 200
   m_MaxSpeed: 100
+  m_BulletSpeedDestroy: 3
   m_Direction: {x: 0, y: 0, z: 0}
   m_DealDamage: 0
 --- !u!212 &7680780605813277417

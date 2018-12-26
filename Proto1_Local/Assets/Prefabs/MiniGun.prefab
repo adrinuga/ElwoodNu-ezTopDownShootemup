@@ -60,5 +60,5 @@ MonoBehaviour:
   m_TotalCoolingTime: 0
   m_CoolingTime: 0
   m_FailBiassPerShot: 0.4
-  m_projectileDistance: 100
   m_projectileSpeed: 15
+  m_bulletSpeedDecrease: 0.5

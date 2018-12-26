@@ -18,12 +18,15 @@ public class Bullet : MonoBehaviour
     public SpriteRenderer m_BulletRenderer;
 
     public float
-        m_DistanceDuration,
-        m_MaxSpeed
+        m_MaxSpeed,
+        m_BulletSpeedDestroy
         ;
     private float 
         m_ActualSpeed,
-        m_DistanceMade;
+        m_DecreasingSpeed
+        
+
+        ;
     [HideInInspector] public Vector3 m_Direction;
 
     [HideInInspector] public float m_DealDamage;
@@ -49,21 +52,25 @@ public class Bullet : MonoBehaviour
     void Move()
     {
         transform.position += m_Direction * m_ActualSpeed * Time.deltaTime;
-        m_DistanceMade += m_ActualSpeed * Time.deltaTime;
+        //m_DistanceMade += m_ActualSpeed * Time.deltaTime;
+        if(m_Target == null)
+        {
+            m_ActualSpeed -= m_DecreasingSpeed;
+        }
     }
     void CheckDeath()
     {
-        if(m_DistanceMade >= m_DistanceDuration && m_Target == null)
+        if(m_ActualSpeed <= m_BulletSpeedDestroy)
         {
             Destroy(this.gameObject);
         }
     }
-    public void SetBullet(Vector3 _dir, float _damage,Sprite _bSprite,float  _totalDistance, float m_speed)
+    public void SetBullet(Vector3 _dir, float _damage,Sprite _bSprite,float  _speedDecrase, float m_speed)
     {
         m_ActualSpeed = m_speed;
 
         m_Direction = _dir;
-        m_DistanceDuration = _totalDistance;
+        m_DecreasingSpeed = _speedDecrase;
 
         m_BulletRenderer.sprite = _bSprite;
 

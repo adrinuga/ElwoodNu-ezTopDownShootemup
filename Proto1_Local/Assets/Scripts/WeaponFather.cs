@@ -40,8 +40,9 @@ public class WeaponFather : MonoBehaviour
         m_CoolingTime,
 
         m_FailBiassPerShot,
-        m_projectileDistance,
-        m_projectileSpeed
+        m_projectileSpeed,
+        m_bulletSpeedDecrease
+
 
         ;
 

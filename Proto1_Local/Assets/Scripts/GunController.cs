@@ -153,7 +153,7 @@ public class GunController : MonoBehaviour
 
         l_newBullet = Instantiate(m_actualBullet.gameObject, l_spawnPosition, l_ShootRotationOnDir).GetComponent<Bullet>();
 
-        l_newBullet.SetBullet(_direction, m_actualWeapon.m_DefaultDamage, m_actualWeapon.m_BulletSprite, m_actualWeapon.m_projectileDistance, m_actualWeapon.m_projectileSpeed);
+        l_newBullet.SetBullet(_direction, m_actualWeapon.m_DefaultDamage, m_actualWeapon.m_BulletSprite, m_actualWeapon.m_bulletSpeedDecrease, m_actualWeapon.m_projectileSpeed);
     }
     
     Quaternion RotationToDirection(Vector3 _dir)
