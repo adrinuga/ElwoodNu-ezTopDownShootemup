@@ -95,7 +95,7 @@ MonoBehaviour:
   m_MyGunRenderer: {fileID: 732949509}
   m_isLoaded: 1
   m_actualAbility: 0
-  m_defaultWeapon: {fileID: 6885245154669645767, guid: 944fd45427dcbb244b1d0c5899a661dd,
+  m_defaultWeapon: {fileID: 6885245154669645767, guid: cca7483c6b562aa4f97303e88d91b951,
     type: 3}
   m_actualWeapon: {fileID: 0}
   m_defaultBullet: {fileID: 8541765289521976955, guid: ff35d7db980c6fe4f92274d82521bf5c,

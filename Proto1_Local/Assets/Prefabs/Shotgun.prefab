@@ -54,7 +54,7 @@ MonoBehaviour:
   - Shotgun
   m_DefaultDamage: 60
   m_MaxAmmo: 40
-  m_TimeBetweenShoots: 0.1
+  m_TimeBetweenShoots: 0.3
   m_MaxHeat: 0
   m_HeatPerShoot: 0
   m_TotalCoolingTime: 0
