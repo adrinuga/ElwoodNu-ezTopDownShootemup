@@ -20,11 +20,12 @@ public class WeaponFather : MonoBehaviour
 
     }
     public LoadTypes m_WeaponLoadType;
+    public ShootTypes m_WeaponShootType;
 
-    public bool m_isLoaded = true;
+    public int m_HowManyShots;
 
 
-    public Sprite m_MySprite;
+    public Sprite m_MySprite , m_BulletSprite;
     public List<string> m_Names;
 
     public float
@@ -36,13 +37,15 @@ public class WeaponFather : MonoBehaviour
         m_MaxHeat,
         m_HeatPerShoot,
         m_TotalCoolingTime,
-        m_CoolingTime
+        m_CoolingTime,
+
+        m_FailBiassPerShot,
+        m_projectileDistance,
+        m_projectileSpeed
+
         ;
 
 
-    public void Reload()
-    {
 
-    }
 }
 

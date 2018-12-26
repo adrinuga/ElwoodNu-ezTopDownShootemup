@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178479736956379335}
   - component: {fileID: 732949509}
+  - component: {fileID: 720398749}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178479736956379328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.098, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0.154, y: -0.141, z: -0.062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 178479737400404787}
@@ -67,18 +68,39 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300006, guid: fce9e9f6f448cde45b5949e8d8773307, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.81, y: 1.88}
+  m_Size: {x: 0.7025, y: 0.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &720398749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178479736956379328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b231debcaa810409fd4b5fd664f84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MyGunRenderer: {fileID: 732949509}
+  m_isLoaded: 1
+  m_actualAbility: 0
+  m_defaultWeapon: {fileID: 6885245154669645767, guid: 944fd45427dcbb244b1d0c5899a661dd,
+    type: 3}
+  m_actualWeapon: {fileID: 0}
+  m_defaultBullet: {fileID: 8541765289521976955, guid: ff35d7db980c6fe4f92274d82521bf5c,
+    type: 3}
+  m_actualBullet: {fileID: 0}
 --- !u!1 &178479737400404781
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +173,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed328a222a7ac984781f461be2e806ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c483f5042572fce42b07d90853cb0db5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4, y: 4.2}
@@ -179,6 +201,7 @@ MonoBehaviour:
   m_LeftKey: 97
   m_RightKey: 100
   m_WeaponTransform: {fileID: 178479736956379335}
+  m_GameCamera: {fileID: 0}
   m_WeaponRenderer: {fileID: 732949509}
   m_myRenderer: {fileID: 178479737400404780}
   m_PlayerRb: {fileID: 178479737400404786}
@@ -201,7 +224,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 1.008}
+    oldSize: {x: 1.3333334, y: 1.3333334}
     newSize: {x: 4, y: 4.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
