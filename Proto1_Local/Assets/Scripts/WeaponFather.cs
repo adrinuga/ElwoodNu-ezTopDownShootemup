@@ -22,7 +22,10 @@ public class WeaponFather : MonoBehaviour
     public LoadTypes m_WeaponLoadType;
     public ShootTypes m_WeaponShootType;
 
-    public int m_HowManyShots;
+    public int 
+        m_HowManyShots,
+        m_HowManyBursts
+        ;
 
 
     public Sprite m_MySprite , m_BulletSprite;
@@ -41,7 +44,8 @@ public class WeaponFather : MonoBehaviour
 
         m_FailBiassPerShot,
         m_projectileSpeed,
-        m_bulletSpeedDecrease
+        m_bulletSpeedDecrease,
+        m_KnockBackForce
 
 
         ;
