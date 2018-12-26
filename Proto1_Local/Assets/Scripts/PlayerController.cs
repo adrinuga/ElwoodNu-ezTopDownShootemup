@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
- 
+    public enum PlayerAbilities
+    {
+        None,
+        Teleport,
+        CutDash,
+        VortexGranade,
+        Deflect,
+        AkimboWeapons,
+        SonicBoom
+    }
+    public PlayerAbilities m_actualAbility = PlayerAbilities.None;
+
 
     [SerializeField]
     private KeyCode
@@ -41,6 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         m_actualSpeed = m_defaultSpeed;
         m_GameCamera = Camera.main;
+        ChangePlayerAbility(PlayerAbilities.None);
     }
 
     // Update is called once per frame
@@ -142,6 +154,10 @@ public class PlayerController : MonoBehaviour
 
     }
     public void ManageAbility()
+    {
+
+    }
+    public void ChangePlayerAbility(PlayerAbilities _newAbility)
     {
 
     }

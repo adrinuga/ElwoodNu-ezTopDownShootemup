@@ -6,23 +6,13 @@ public class GunController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_MyGunRenderer;
 
-    public enum PlayerAbilities
-    {
-        None,
-        Teleport,
-        CutDash,
-        VortexGranade,
-        Deflect,
-        AkimboWeapons,
-        SonicBoom
-    }
 
     public bool 
         m_isLoaded = true,
         m_isReloading = false
         ;
 
-    public PlayerAbilities m_actualAbility = PlayerAbilities.None;
+   
 
     [SerializeField] private WeaponFather m_defaultWeapon;
     [HideInInspector]public WeaponFather m_actualWeapon;
@@ -33,7 +23,7 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangeWeapon(m_defaultWeapon, PlayerAbilities.None, m_defaultBullet);
+        ChangeWeapon(m_defaultWeapon,  m_defaultBullet);
     }
 
     // Update is called once per frame
@@ -201,12 +191,12 @@ public class GunController : MonoBehaviour
         Debug.Log(_dir);
         return _dir;
     }
-        public void ChangeWeapon(WeaponFather _NewWeapon, PlayerAbilities m_NewAbility, Bullet m_NewBullet )
+        public void ChangeWeapon(WeaponFather _NewWeapon, Bullet m_NewBullet )
     {
         m_actualWeapon = _NewWeapon;
         m_MyGunRenderer.sprite = m_actualWeapon.m_MySprite;
 
-        m_actualAbility = m_NewAbility;
+       
 
         m_actualBullet = m_NewBullet;
 
