@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.m_instance.m_Bullets.Add(this);
     }
 
     // Update is called once per frame

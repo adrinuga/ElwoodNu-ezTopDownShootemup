@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.m_instance.m_Player = this;
         m_actualSpeed = m_defaultSpeed;
         m_GameCamera = Camera.main;
         ChangePlayerAbility(PlayerAbilities.None);

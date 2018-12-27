@@ -7,25 +7,95 @@ public class EnemyFather : MonoBehaviour
     public enum EnemyStates
     {
         Idle,
-        Chase,
+        Attack,
         Stunned,
-        Dead
+        Hit,
+        Dead,
+        
     }
     public EnemyStates m_ActualState;
+
+    public float m_NormalSpeed;
+    [HideInInspector]public float m_actualSpeed;
+    [SerializeField] Rigidbody2D m_EnemyRb;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_ActualState = EnemyStates.Idle;
+        GameManager.m_instance.m_Enemies.Add(this);
+        m_ActualState = EnemyStates.Attack;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (m_ActualState)
+        {
+            case EnemyStates.Idle:
+
+                break;
+
+            case EnemyStates.Attack:
+
+                Vector3 l_playerPos = GameManager.m_instance.m_Player.transform.position;
+                l_playerPos.z = 0;
+                Vector3 dir = l_playerPos - transform.position;
+                dir.z = 0;
+
+                Debug.Log("update");
+
+                dir.Normalize();
+                m_EnemyRb.velocity = dir * m_NormalSpeed * Time.deltaTime;
+               
+
+                break;
+
+            case EnemyStates.Stunned:
+                break;
+
+            case EnemyStates.Hit:
+                break;
+
+            case EnemyStates.Dead:
+                break;
+
+
+        }
+    }
+    void ChangeState(EnemyStates _nextState)
+    {
+        switch (_nextState)
+        {
+            case EnemyStates.Idle:
+
+                break;
+
+            case EnemyStates.Attack:
+
+              
+                
+
+                break;
+
+            case EnemyStates.Stunned:
+                break;
+
+            case EnemyStates.Hit:
+                break;
+
+            case EnemyStates.Dead:
+                break;
+
+
+        }
+
+        m_ActualState = _nextState;
     }
     public void Kill()
+    {
 
+    }
+    public void SetKnockBack()
     {
 
     }
