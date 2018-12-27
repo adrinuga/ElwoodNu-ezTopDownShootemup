@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_BulletRb;
+    [SerializeField] private BoxCollider2D m_BulletCollider;
     public enum BulletTypes
     {
         Normal,
@@ -65,9 +66,9 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void SetBullet(Vector3 _dir, float _damage,Sprite _bSprite,float  _speedDecrase, float m_speed)
+    public void SetBullet(Vector3 _dir, float _damage,Sprite _bSprite,float  _speedDecrase, float _speed, float _BulletSize)
     {
-        m_ActualSpeed = m_speed;
+        m_ActualSpeed = _speed;
 
         m_Direction = _dir;
         m_DecreasingSpeed = _speedDecrase;
@@ -75,5 +76,8 @@ public class Bullet : MonoBehaviour
         m_BulletRenderer.sprite = _bSprite;
 
         m_DealDamage = _damage;
+
+        this.transform.localScale *= _BulletSize;
+      
     }
 }

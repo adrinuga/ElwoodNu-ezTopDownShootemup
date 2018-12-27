@@ -64,3 +64,4 @@ MonoBehaviour:
   m_projectileSpeed: 17
   m_bulletSpeedDecrease: 0.1
   m_KnockBackForce: 0
+  m_BulletSize: 1

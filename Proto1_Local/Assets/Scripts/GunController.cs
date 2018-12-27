@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+
     [SerializeField] private SpriteRenderer m_MyGunRenderer;
 
+    public int m_clickButton = 0;
 
     public bool 
         m_isLoaded = true,
@@ -19,6 +21,11 @@ public class GunController : MonoBehaviour
 
     [SerializeField] private Bullet m_defaultBullet;
     [HideInInspector] public Bullet m_actualBullet;
+
+    private float 
+        m_actualReloadTime,
+        m_actualWeaponHeat
+        ;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +41,7 @@ public class GunController : MonoBehaviour
         {
             case (WeaponFather.LoadTypes.Auto):
 
-                if(Input.GetMouseButton(0)&& m_isLoaded)
+                if(Input.GetMouseButton(m_clickButton) && m_isLoaded)
                 {
                     Shoot(GetMouseDir(this),true);
                 }
@@ -42,14 +49,14 @@ public class GunController : MonoBehaviour
 
             case (WeaponFather.LoadTypes.SemiAuto):
 
-                if (Input.GetMouseButtonDown(0)&& m_isLoaded )
+                if (Input.GetMouseButtonDown(m_clickButton) && m_isLoaded )
                 {
                     Shoot(GetMouseDir(this), true);
                 }
                 break;
 
             case (WeaponFather.LoadTypes.ClickReload):
-                if (Input.GetMouseButtonDown(0)&& !m_isReloading)
+                if (Input.GetMouseButtonDown(m_clickButton) && !m_isReloading)
                 { 
                     if (m_isLoaded)
                     {
@@ -68,7 +75,7 @@ public class GunController : MonoBehaviour
 
             case (WeaponFather.LoadTypes.OnClick):
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(m_clickButton))
                 {
                     Shoot((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.root.position).normalized, false);
                     
@@ -130,7 +137,7 @@ public class GunController : MonoBehaviour
 
         l_newBullet = Instantiate(m_actualBullet.gameObject, l_spawnPosition, l_ShootRotationOnDir).GetComponent<Bullet>();
 
-        l_newBullet.SetBullet(_direction, m_actualWeapon.m_DefaultDamage, m_actualWeapon.m_BulletSprite, m_actualWeapon.m_bulletSpeedDecrease, m_actualWeapon.m_projectileSpeed);
+        l_newBullet.SetBullet(_direction, m_actualWeapon.m_DefaultDamage, m_actualWeapon.m_BulletSprite, m_actualWeapon.m_bulletSpeedDecrease, m_actualWeapon.m_projectileSpeed, m_actualWeapon.m_BulletSize);
     }
 
     IEnumerator ShootInBurst(int _burstNumber)
@@ -155,7 +162,16 @@ public class GunController : MonoBehaviour
     {
         m_isReloading = true;
 
-        yield return new WaitForSeconds(m_actualWeapon.m_TimeBetweenShoots * m_actualWeapon.m_HowManyBursts);
+        m_actualReloadTime = m_actualWeapon.m_TimeBetweenShoots * m_actualWeapon.m_HowManyBursts;
+
+        while (m_actualReloadTime > 0)
+        {
+            yield return null;
+
+            m_actualReloadTime -= Time.deltaTime;
+        }
+
+       
 
         m_isReloading = false;
 
@@ -164,7 +180,9 @@ public class GunController : MonoBehaviour
     }
     Vector3 GetSpawnPosition(Vector3 _dir)
     {
-        return transform.position + _dir * m_MyGunRenderer.size.x;
+        Vector3 l_spawn = transform.position + _dir * m_MyGunRenderer.size.x;
+        l_spawn.z = 0;
+        return l_spawn;
     }
     Vector3 GetMouseDir(GunController _gunRef)
     {

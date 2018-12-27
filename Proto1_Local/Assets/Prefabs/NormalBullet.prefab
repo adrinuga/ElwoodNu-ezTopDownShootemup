@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BulletRb: {fileID: 7454312738212923692}
+  m_BulletCollider: {fileID: 6039377348970707524}
   m_MyBulletType: 0
   m_BulletRenderer: {fileID: 7680780605813277417}
   m_MaxSpeed: 100

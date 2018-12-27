@@ -45,7 +45,9 @@ public class WeaponFather : MonoBehaviour
         m_FailBiassPerShot,
         m_projectileSpeed,
         m_bulletSpeedDecrease,
-        m_KnockBackForce
+        m_KnockBackForce,
+
+        m_BulletSize
 
 
         ;
