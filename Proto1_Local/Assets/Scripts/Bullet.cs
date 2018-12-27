@@ -24,7 +24,8 @@ public class Bullet : MonoBehaviour
         ;
     private float 
         m_ActualSpeed,
-        m_DecreasingSpeed
+        m_DecreasingSpeed,
+        m_knockBack
         
 
         ;
@@ -66,7 +67,7 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void SetBullet(Vector3 _dir, float _damage,Sprite _bSprite,float  _speedDecrase, float _speed, float _BulletSize)
+    public void SetBullet(Vector3 _dir, float _damage,Sprite _bSprite,float  _speedDecrase, float _speed, float _BulletSize, float _knockBack)
     {
         m_ActualSpeed = _speed;
 
@@ -77,7 +78,30 @@ public class Bullet : MonoBehaviour
 
         m_DealDamage = _damage;
 
+        m_knockBack = _knockBack;
+
         this.transform.localScale *= _BulletSize;
       
+    }
+    void OnTriggerEnter2D(Collider2D _collider)
+    {
+        if(_collider.transform.tag == "Enemy")
+        {
+            EnemyFather l_enemy = GameManager.m_instance.GetEnemy(_collider.transform);
+
+            l_enemy.ImpactBullet(m_MyBulletType, m_knockBack, m_DealDamage,m_Direction);
+
+            DestroyBullet();
+        }
+        else if(_collider.transform.tag != "Player")
+        {
+            DestroyBullet();
+        }
+    }
+    void DestroyBullet()
+    {
+        GameManager.m_instance.m_Bullets.Remove(this);
+        Destroy(gameObject);
+        
     }
 }

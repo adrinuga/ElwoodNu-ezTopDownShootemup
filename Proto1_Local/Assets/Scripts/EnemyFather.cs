@@ -16,7 +16,10 @@ public class EnemyFather : MonoBehaviour
     public EnemyStates m_ActualState;
 
     public float m_NormalSpeed;
-    [HideInInspector]public float m_actualSpeed;
+    [HideInInspector]public float 
+        m_ActualSpeed,
+        m_EnemyHealth
+        ;
     [SerializeField] Rigidbody2D m_EnemyRb;
 
     // Start is called before the first frame update
@@ -98,6 +101,15 @@ public class EnemyFather : MonoBehaviour
     public void SetKnockBack()
     {
 
+    }
+    public void ImpactBullet( Bullet.BulletTypes _typeBullet, float _knockBackPower, float _damage, Vector3 _dir)
+    {
+        m_EnemyRb.AddForce(_dir * _knockBackPower);
+        m_EnemyHealth -= _damage;
+        if(m_EnemyHealth <= 0)
+        {
+            ChangeState(EnemyStates.Dead);
+        }
     }
 }
 
