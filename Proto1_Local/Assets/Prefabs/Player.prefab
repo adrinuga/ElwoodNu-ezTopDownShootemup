@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MyGunRenderer: {fileID: 732949509}
+  m_clickButton: 0
   m_isLoaded: 1
   m_isReloading: 0
   m_defaultWeapon: {fileID: 6885245154669645767, guid: cca7483c6b562aa4f97303e88d91b951,
@@ -170,8 +171,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -572822947
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c483f5042572fce42b07d90853cb0db5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -89,9 +89,14 @@ public class Bullet : MonoBehaviour
         {
             EnemyFather l_enemy = GameManager.m_instance.GetEnemy(_collider.transform);
 
-            l_enemy.ImpactBullet(m_MyBulletType, m_knockBack, m_DealDamage,m_Direction);
+            if(l_enemy.m_ActualState != EnemyFather.EnemyStates.Dead)
+            {
+                l_enemy.ImpactBullet(m_MyBulletType, m_knockBack, m_DealDamage, m_Direction);
 
-            DestroyBullet();
+                DestroyBullet();
+            }
+
+           
         }
         else if(_collider.transform.tag != "Player"&&_collider.transform.tag != "Bullet")
         {

@@ -63,5 +63,5 @@ MonoBehaviour:
   m_FailBiassPerShot: 0.6
   m_projectileSpeed: 12
   m_bulletSpeedDecrease: 0.2
-  m_KnockBackForce: 0
+  m_KnockBackForce: 50
   m_BulletSize: 1.5

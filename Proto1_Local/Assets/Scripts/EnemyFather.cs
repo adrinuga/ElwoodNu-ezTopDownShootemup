@@ -14,13 +14,21 @@ public class EnemyFather : MonoBehaviour
         
     }
     public EnemyStates m_ActualState;
-
-    public float m_NormalSpeed;
+    
+    public float
+        m_OffsetForce,
+        m_HitPlayerForce,
+        m_NormalSpeed,
+        m_EnemyHealth,
+        m_EnemyWeight
+        ;
     [HideInInspector]public float 
-        m_ActualSpeed,
-        m_EnemyHealth
+       
+        m_ActualSpeed
+        
         ;
     [SerializeField] Rigidbody2D m_EnemyRb;
+    [SerializeField] private SpriteRenderer m_Renderer;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +95,8 @@ public class EnemyFather : MonoBehaviour
                 break;
 
             case EnemyStates.Dead:
+
+                m_Renderer.sortingOrder = -1;
                 break;
 
 
@@ -104,14 +114,57 @@ public class EnemyFather : MonoBehaviour
     }
     public void ImpactBullet( Bullet.BulletTypes _typeBullet, float _knockBackPower, float _damage, Vector3 _dir)
     {
+    
+
+        transform.position += _dir * _knockBackPower * Time.deltaTime;
 
         m_EnemyRb.velocity = Vector2.zero;
-        m_EnemyRb.AddForce(_dir * _knockBackPower);
+        //m_EnemyRb.AddForce(_dir * _knockBackPower);
         m_EnemyHealth -= _damage;
         if(m_EnemyHealth <= 0)
         {
             ChangeState(EnemyStates.Dead);
         }
+    }
+
+    public void OnTriggerStay2D(Collider2D _collider)
+    {
+        Debug.Log("Staying");
+
+        if(m_ActualState != EnemyStates.Dead)
+        {
+            if (_collider.transform.tag == "Enemy")
+            {
+                if (GameManager.m_instance.GetEnemy(_collider.transform).m_ActualState != EnemyStates.Dead)
+                {
+                    Vector3 l_dir = _collider.transform.position - transform.position;
+
+                    l_dir.z = 0;
+                    l_dir.Normalize();
+
+                    _collider.transform.position += l_dir * m_OffsetForce * Time.deltaTime;
+                }
+
+
+
+            }
+        }
+
+        
+    }
+    public void OnTriggerEnter2D(Collider2D _collider)
+    {
+
+        if (_collider.transform.tag == "Player" && m_ActualState != EnemyStates.Dead)
+        {
+            Vector3 l_dir = _collider.transform.position - transform.position;
+
+            l_dir.z = 0;
+            l_dir.Normalize();
+
+            _collider.transform.position += l_dir * m_HitPlayerForce * Time.deltaTime;
+        }
+
     }
 }
 
