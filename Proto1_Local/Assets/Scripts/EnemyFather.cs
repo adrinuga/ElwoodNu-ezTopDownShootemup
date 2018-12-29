@@ -104,6 +104,8 @@ public class EnemyFather : MonoBehaviour
     }
     public void ImpactBullet( Bullet.BulletTypes _typeBullet, float _knockBackPower, float _damage, Vector3 _dir)
     {
+
+        m_EnemyRb.velocity = Vector2.zero;
         m_EnemyRb.AddForce(_dir * _knockBackPower);
         m_EnemyHealth -= _damage;
         if(m_EnemyHealth <= 0)

@@ -93,7 +93,7 @@ public class Bullet : MonoBehaviour
 
             DestroyBullet();
         }
-        else if(_collider.transform.tag != "Player")
+        else if(_collider.transform.tag != "Player"&&_collider.transform.tag != "Bullet")
         {
             DestroyBullet();
         }

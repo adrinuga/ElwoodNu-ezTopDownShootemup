@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public PlayerController m_Player;
     public List<EnemyFather> m_Enemies;
     public List<Bullet> m_Bullets;
+    public UIManager m_SceneUI;
 
     // Start is called before the first frame update
     void Awake()

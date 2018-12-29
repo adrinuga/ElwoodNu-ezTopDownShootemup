@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GunController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\WeaponFather.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>E:/Curro/Unity/TopDownAlandAndI/ElwoodNu-ezTopDownShootemup/Proto1_Local/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

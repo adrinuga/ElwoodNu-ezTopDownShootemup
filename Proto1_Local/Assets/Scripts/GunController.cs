@@ -163,16 +163,28 @@ public class GunController : MonoBehaviour
     {
         m_isReloading = true;
 
+       
+
+        
+
         m_actualReloadTime = m_actualWeapon.m_TimeBetweenShoots * m_actualWeapon.m_HowManyBursts;
+
+        float l_originalTotal = m_actualReloadTime;
+
+        GameManager.m_instance.m_SceneUI.m_WeaponReloadFill1.fillAmount = 1;
 
         while (m_actualReloadTime > 0)
         {
             yield return null;
 
             m_actualReloadTime -= Time.deltaTime;
+
+            Debug.Log(l_originalTotal / m_actualReloadTime);
+
+            GameManager.m_instance.m_SceneUI.m_WeaponReloadFill1.fillAmount = m_actualReloadTime / l_originalTotal;
         }
 
-       
+        GameManager.m_instance.m_SceneUI.m_WeaponReloadFill1.fillAmount = 0;
 
         m_isReloading = false;
 
