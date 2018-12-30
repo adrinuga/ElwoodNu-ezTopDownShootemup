@@ -53,6 +53,8 @@ public class EnemyFather : MonoBehaviour
                 Vector3 dir = l_playerPos - transform.position;
                 dir.z = 0;
 
+                UpdateSprite(l_playerPos);
+
                 Debug.Log("update");
 
                 dir.Normalize();
@@ -71,6 +73,19 @@ public class EnemyFather : MonoBehaviour
                 break;
 
 
+        }
+        
+    }
+    void UpdateSprite(Vector3 _dirPos)
+    {
+        float l_scaleX = Mathf.Abs(transform.localScale.x);
+        if(_dirPos.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(l_scaleX, transform.localScale.y, transform.localScale.z); 
+        }
+        else
+        {
+            transform.localScale = new Vector3(-l_scaleX, transform.localScale.y, transform.localScale.z);
         }
     }
     void ChangeState(EnemyStates _nextState)
