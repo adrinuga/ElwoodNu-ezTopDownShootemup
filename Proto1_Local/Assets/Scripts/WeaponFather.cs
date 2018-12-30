@@ -28,7 +28,12 @@ public class WeaponFather : MonoBehaviour
         ;
 
 
-    public Sprite m_MySprite , m_BulletSprite;
+    public Sprite
+        m_MySprite ,
+        m_BulletSprite,
+        m_HeatBackSprite,
+        m_HeatFillSprite
+        ;
     public List<string> m_Names;
 
     public float
@@ -37,7 +42,7 @@ public class WeaponFather : MonoBehaviour
         m_TimeBetweenShoots,
 
 
-        m_MaxHeat,
+        m_MaxHeat = 100f,
         m_HeatPerShoot,
         m_TotalCoolingTime,
         m_CoolingTime,

@@ -49,6 +49,8 @@ MonoBehaviour:
   m_HowManyBursts: 3
   m_MySprite: {fileID: 21300008, guid: fce9e9f6f448cde45b5949e8d8773307, type: 3}
   m_BulletSprite: {fileID: 21300002, guid: 1038057631aae9f41ae7f39f89e32561, type: 3}
+  m_HeatBackSprite: {fileID: 0}
+  m_HeatFillSprite: {fileID: 0}
   m_Names:
   - HandCannon
   - Pistol
@@ -56,7 +58,7 @@ MonoBehaviour:
   m_DefaultDamage: 15
   m_MaxAmmo: 200
   m_TimeBetweenShoots: 0.15
-  m_MaxHeat: 0
+  m_MaxHeat: 100
   m_HeatPerShoot: 0
   m_TotalCoolingTime: 0
   m_CoolingTime: 0
