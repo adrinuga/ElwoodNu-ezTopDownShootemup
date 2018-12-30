@@ -123,8 +123,8 @@ MonoBehaviour:
   m_ActualState: 1
   m_OffsetForce: 0.5
   m_HitPlayerForce: 50
-  m_NormalSpeed: 5
-  m_EnemyHealth: 50
+  m_NormalSpeed: 20
+  m_EnemyHealth: 40
   m_EnemyWeight: 5
   m_ActualSpeed: 0
   m_EnemyRb: {fileID: 9149928943968646460}

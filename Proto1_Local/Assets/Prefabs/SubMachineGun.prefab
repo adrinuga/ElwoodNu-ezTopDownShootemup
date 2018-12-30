@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WeaponLoadType: 0
   m_WeaponShootType: 1
-  m_HowManyShots: 0
+  m_HowManyShots: 1
   m_HowManyBursts: 3
   m_MySprite: {fileID: 21300008, guid: fce9e9f6f448cde45b5949e8d8773307, type: 3}
   m_BulletSprite: {fileID: 21300002, guid: 1038057631aae9f41ae7f39f89e32561, type: 3}
@@ -53,7 +53,7 @@ MonoBehaviour:
   - HandCannon
   - Pistol
   - Slugger
-  m_DefaultDamage: 30
+  m_DefaultDamage: 15
   m_MaxAmmo: 200
   m_TimeBetweenShoots: 0.15
   m_MaxHeat: 0
@@ -63,5 +63,5 @@ MonoBehaviour:
   m_FailBiassPerShot: 0.1
   m_projectileSpeed: 17
   m_bulletSpeedDecrease: 0.1
-  m_KnockBackForce: 0
+  m_KnockBackForce: 20
   m_BulletSize: 1

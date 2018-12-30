@@ -53,7 +53,7 @@ MonoBehaviour:
   - Scattergun
   - Boomer
   - Shotgun
-  m_DefaultDamage: 60
+  m_DefaultDamage: 50
   m_MaxAmmo: 40
   m_TimeBetweenShoots: 0.4
   m_MaxHeat: 0

@@ -43,7 +43,7 @@ public class GunController : MonoBehaviour
 
                 if(Input.GetMouseButton(m_clickButton) && m_isLoaded)
                 {
-                    Shoot(GetMouseDir(this),true);
+                    Shoot(true);
                 }
                 break;
 
@@ -51,7 +51,7 @@ public class GunController : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(m_clickButton) && m_isLoaded )
                 {
-                    Shoot(GetMouseDir(this), true);
+                    Shoot( true);
                 }
                 break;
 
@@ -60,7 +60,7 @@ public class GunController : MonoBehaviour
                 { 
                     if (m_isLoaded)
                     {
-                        Shoot(GetMouseDir(this), false);
+                        Shoot(false);
 
                         m_isLoaded = false;
                     }
@@ -77,7 +77,7 @@ public class GunController : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(m_clickButton))
                 {
-                    Shoot((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.root.position).normalized, false);
+                    Shoot(false);
                     
                 }
                 break;
@@ -86,38 +86,14 @@ public class GunController : MonoBehaviour
     }
 
 
-    public void Shoot(Vector3 _direction, bool _startReload)
+    public void Shoot( bool _startReload)
     {
        
-        _direction.z = 0;
+       
 
-        Vector3 l_spawnPosition = GetSpawnPosition(_direction);
+        StartCoroutine(ShootInBurst(m_actualWeapon.m_HowManyBursts));
 
-        switch (m_actualWeapon.m_WeaponShootType)
-        {
-            case (WeaponFather.ShootTypes.Single):
-
-                CreateBullet(_direction, l_spawnPosition);
-
-            break;
-
-            case (WeaponFather.ShootTypes.Burst):
-
-                StartCoroutine(ShootInBurst(m_actualWeapon.m_HowManyBursts));
-
-
-            break;
-
-            case (WeaponFather.ShootTypes.Spread):
-
-                for (int i = 0; i < m_actualWeapon.m_HowManyShots; i++)
-                {
-                    CreateBullet(_direction, l_spawnPosition);
-                }
-
-                break;
-
-        }
+      
 
        
         if (_startReload)
@@ -135,9 +111,11 @@ public class GunController : MonoBehaviour
         Debug.Log(_direction);
         Quaternion l_ShootRotationOnDir = RotationToDirection(_direction);
 
+        float l_damage = m_actualWeapon.m_DefaultDamage / m_actualWeapon.m_HowManyShots;
+
         l_newBullet = Instantiate(m_actualBullet.gameObject, l_spawnPosition, l_ShootRotationOnDir).GetComponent<Bullet>();
 
-        l_newBullet.SetBullet(_direction, m_actualWeapon.m_DefaultDamage, m_actualWeapon.m_BulletSprite, m_actualWeapon.m_bulletSpeedDecrease,
+        l_newBullet.SetBullet(_direction, l_damage, m_actualWeapon.m_BulletSprite, m_actualWeapon.m_bulletSpeedDecrease,
             m_actualWeapon.m_projectileSpeed, m_actualWeapon.m_BulletSize, m_actualWeapon.m_KnockBackForce);
     }
 
@@ -147,8 +125,14 @@ public class GunController : MonoBehaviour
 
         while (l_burstCounter < _burstNumber)
         {
-            Vector3 _dir = GetMouseDir(this);
-            CreateBullet(_dir, GetSpawnPosition(_dir));
+            for (int i = 0; i < m_actualWeapon.m_HowManyShots; i++)
+            {
+                Vector3 _dir = GetMouseDir(this);
+                CreateBullet(_dir, GetSpawnPosition(_dir));
+            }
+
+           
+            
             yield return new WaitForSeconds(m_actualWeapon.m_TimeBetweenShoots / 2);
 
             l_burstCounter++;

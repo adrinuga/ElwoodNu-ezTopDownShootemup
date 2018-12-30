@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WeaponLoadType: 3
   m_WeaponShootType: 0
-  m_HowManyShots: 0
+  m_HowManyShots: 1
   m_HowManyBursts: 1
   m_MySprite: {fileID: 21300010, guid: fce9e9f6f448cde45b5949e8d8773307, type: 3}
   m_BulletSprite: {fileID: 21300000, guid: 1038057631aae9f41ae7f39f89e32561, type: 3}
@@ -53,7 +53,7 @@ MonoBehaviour:
   - Sniper
   - HeadBlower
   - QuickScoper
-  m_DefaultDamage: 20
+  m_DefaultDamage: 30
   m_MaxAmmo: 200
   m_TimeBetweenShoots: 0.7
   m_MaxHeat: 0

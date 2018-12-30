@@ -129,7 +129,7 @@ public class EnemyFather : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D _collider)
     {
-        Debug.Log("Staying");
+        //Debug.Log("Staying");
 
         if(m_ActualState != EnemyStates.Dead)
         {
