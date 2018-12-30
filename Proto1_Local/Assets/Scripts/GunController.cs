@@ -238,6 +238,7 @@ public class GunController : MonoBehaviour
         Vector3 l_random = Random.insideUnitSphere;
         l_random.z = 0;
         _dir += l_random * _randomness;
+        _dir.Normalize();
         Debug.Log(_dir);
         return _dir;
     }
