@@ -26,6 +26,7 @@ public class GunController : MonoBehaviour
         m_actualReloadTime,
         m_actualWeaponHeat
         ;
+    public bool m_OverHeated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,53 +37,72 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        switch (m_actualWeapon.m_WeaponLoadType)
+     if(!m_OverHeated)
         {
-            case (WeaponFather.LoadTypes.Auto):
+            switch (m_actualWeapon.m_WeaponLoadType)
+            {
+                case (WeaponFather.LoadTypes.Auto):
 
-                if(Input.GetMouseButton(m_clickButton) && m_isLoaded)
-                {
-                    Shoot(true);
-                }
-                break;
+                    if (Input.GetMouseButton(m_clickButton) && m_isLoaded)
+                    {
+                        Shoot(true);
+                    }
+                    break;
 
-            case (WeaponFather.LoadTypes.SemiAuto):
+                case (WeaponFather.LoadTypes.SemiAuto):
 
-                if (Input.GetMouseButtonDown(m_clickButton) && m_isLoaded )
-                {
-                    Shoot( true);
-                }
-                break;
+                    if (Input.GetMouseButtonDown(m_clickButton) && m_isLoaded)
+                    {
+                        Shoot(true);
+                    }
+                    break;
 
-            case (WeaponFather.LoadTypes.ClickReload):
-                if (Input.GetMouseButtonDown(m_clickButton) && !m_isReloading)
-                { 
-                    if (m_isLoaded)
+                case (WeaponFather.LoadTypes.ClickReload):
+                    if (Input.GetMouseButtonDown(m_clickButton) && !m_isReloading)
+                    {
+                        if (m_isLoaded)
+                        {
+                            Shoot(false);
+
+                            m_isLoaded = false;
+                        }
+                        else
+                        {
+
+                            StartCoroutine(Reload());
+                        }
+                    }
+
+                    break;
+
+                case (WeaponFather.LoadTypes.OnClick):
+
+                    if (Input.GetMouseButtonDown(m_clickButton))
                     {
                         Shoot(false);
 
-                        m_isLoaded = false;
                     }
-                    else
-                    {
-                        
-                            StartCoroutine(Reload());
-                    }
-                }
+                    break;
 
-                break;
+            }
+            m_actualWeaponHeat -= m_actualWeapon.m_CoolingSpeed * Time.deltaTime;
 
-            case (WeaponFather.LoadTypes.OnClick):
 
-                if (Input.GetMouseButtonDown(m_clickButton))
-                {
-                    Shoot(false);
-                    
-                }
-                break;
-
+            m_actualWeaponHeat = Mathf.Clamp(m_actualWeaponHeat, 0, m_actualWeapon.m_MaxHeat);
         }
+        else
+        {
+            m_actualWeaponHeat -= m_actualWeapon.m_TotalCoolingSpeed * Time.deltaTime;
+
+            if(m_actualWeaponHeat <= 0)
+            {
+                m_OverHeated = false;
+            }
+            m_actualWeaponHeat = Mathf.Clamp(m_actualWeaponHeat, 0, m_actualWeapon.m_MaxHeat);
+        }
+
+
+        GameManager.m_instance.m_SceneUI.m_WeaponHeatFillUI1.fillAmount = m_actualWeaponHeat / m_actualWeapon.m_MaxHeat;
     }
 
 
@@ -96,7 +116,7 @@ public class GunController : MonoBehaviour
       
 
        
-        if (_startReload)
+        if (_startReload && !m_OverHeated)
         {
             m_isLoaded = false;
             StartCoroutine(Reload());
@@ -123,22 +143,36 @@ public class GunController : MonoBehaviour
     {
         int l_burstCounter = 0;
 
-        while (l_burstCounter < _burstNumber)
+        m_actualWeaponHeat += m_actualWeapon.m_HeatPerShoot;
+
+        if (m_actualWeaponHeat >= m_actualWeapon.m_MaxHeat)
         {
-            for (int i = 0; i < m_actualWeapon.m_HowManyShots; i++)
-            {
-                Vector3 _dir = GetMouseDir(this);
-                CreateBullet(_dir, GetSpawnPosition(_dir));
-            }
-
-           
-            
-            yield return new WaitForSeconds(m_actualWeapon.m_TimeBetweenShoots / 2);
-
-            l_burstCounter++;
-
-
+            m_OverHeated = true;
         }
+        m_actualWeaponHeat = Mathf.Clamp(m_actualWeaponHeat, 0, m_actualWeapon.m_MaxHeat);
+
+        
+
+     
+
+            while (l_burstCounter < _burstNumber)
+            {
+                for (int i = 0; i < m_actualWeapon.m_HowManyShots; i++)
+                {
+                    Vector3 _dir = GetMouseDir(this);
+                    CreateBullet(_dir, GetSpawnPosition(_dir));
+                }
+
+
+
+                yield return new WaitForSeconds(m_actualWeapon.m_TimeBetweenShoots / 2);
+
+                l_burstCounter++;
+
+
+            }
+      
+
 
 
     }
@@ -207,9 +241,17 @@ public class GunController : MonoBehaviour
         Debug.Log(_dir);
         return _dir;
     }
-        public void ChangeWeapon(WeaponFather _NewWeapon, Bullet m_NewBullet )
+    public void ChangeWeapon(WeaponFather _NewWeapon, Bullet m_NewBullet )
     {
+        m_OverHeated = false;
+        m_actualWeaponHeat = 0f;
+
         m_actualWeapon = _NewWeapon;
+
+        GameManager.m_instance.m_SceneUI.m_WeaponHeatBackUI1.sprite = m_actualWeapon.m_HeatBackSprite;
+        GameManager.m_instance.m_SceneUI.m_WeaponHeatFillUI1.sprite = m_actualWeapon.m_HeatFillSprite;
+
+       
         m_MyGunRenderer.sprite = m_actualWeapon.m_MySprite;
 
        

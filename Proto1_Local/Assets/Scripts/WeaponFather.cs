@@ -44,8 +44,8 @@ public class WeaponFather : MonoBehaviour
 
         m_MaxHeat = 100f,
         m_HeatPerShoot,
-        m_TotalCoolingTime,
-        m_CoolingTime,
+        m_TotalCoolingSpeed = 10f,
+        m_CoolingSpeed = 5f,
 
         m_FailBiassPerShot,
         m_projectileSpeed,

@@ -818,7 +818,7 @@ PrefabInstance:
     - target: {fileID: 720398749, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
       propertyPath: m_defaultWeapon
       value: 
-      objectReference: {fileID: 6885245154669645767, guid: cca7483c6b562aa4f97303e88d91b951,
+      objectReference: {fileID: 6885245154669645767, guid: e33bb4dd1c19a424d83c134e669b07ec,
         type: 3}
     - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
       propertyPath: m_FlipX
@@ -986,6 +986,46 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 651693509}
+    - target: {fileID: 2055255406306424483, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406306424482, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406306424482, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -48.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406306424481, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406306424481, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406306424481, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406460437739, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055255406867147885, guid: a87490565bc944e47b6b7f317f35683a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a87490565bc944e47b6b7f317f35683a, type: 3}
 --- !u!1001 &9149928943404135824
