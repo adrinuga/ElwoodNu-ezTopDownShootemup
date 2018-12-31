@@ -986,45 +986,32 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 651693509}
-    - target: {fileID: 2055255406306424483, guid: a87490565bc944e47b6b7f317f35683a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055255406306424482, guid: a87490565bc944e47b6b7f317f35683a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055255406306424482, guid: a87490565bc944e47b6b7f317f35683a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -48.4
-      objectReference: {fileID: 0}
     - target: {fileID: 2055255406306424481, guid: a87490565bc944e47b6b7f317f35683a,
         type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 3
+      propertyPath: m_Text
+      value: 'Heat1
+
+'
       objectReference: {fileID: 0}
-    - target: {fileID: 2055255406306424481, guid: a87490565bc944e47b6b7f317f35683a,
+    - target: {fileID: 532705725159078883, guid: a87490565bc944e47b6b7f317f35683a,
         type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
+      propertyPath: m_Name
+      value: Ammo2
       objectReference: {fileID: 0}
-    - target: {fileID: 2055255406306424481, guid: a87490565bc944e47b6b7f317f35683a,
+    - target: {fileID: 899220208197856484, guid: a87490565bc944e47b6b7f317f35683a,
         type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
+      propertyPath: m_Text
+      value: 'Ammo2
+
+
+'
       objectReference: {fileID: 0}
-    - target: {fileID: 2055255406460437739, guid: a87490565bc944e47b6b7f317f35683a,
+    - target: {fileID: 166914026432168178, guid: a87490565bc944e47b6b7f317f35683a,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055255406867147885, guid: a87490565bc944e47b6b7f317f35683a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Text
+      value: 'Heat2
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a87490565bc944e47b6b7f317f35683a, type: 3}
