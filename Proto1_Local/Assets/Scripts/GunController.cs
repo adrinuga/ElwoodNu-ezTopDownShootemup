@@ -24,7 +24,8 @@ public class GunController : MonoBehaviour
 
     private float 
         m_actualReloadTime,
-        m_actualWeaponHeat
+        m_actualWeaponHeat,
+        m_actualWeaponAmmo
         ;
     public bool m_OverHeated = false;
 
@@ -39,52 +40,58 @@ public class GunController : MonoBehaviour
     {
      if(!m_OverHeated)
         {
-            switch (m_actualWeapon.m_WeaponLoadType)
+            if(m_actualWeaponAmmo > 0)
             {
-                case (WeaponFather.LoadTypes.Auto):
+                switch (m_actualWeapon.m_WeaponLoadType)
+                {
+                    case (WeaponFather.LoadTypes.Auto):
 
-                    if (Input.GetMouseButton(m_clickButton) && m_isLoaded)
-                    {
-                        Shoot(true);
-                    }
-                    break;
+                        if (Input.GetMouseButton(m_clickButton) && m_isLoaded)
+                        {
+                            Shoot(true);
+                        }
+                        break;
 
-                case (WeaponFather.LoadTypes.SemiAuto):
+                    case (WeaponFather.LoadTypes.SemiAuto):
 
-                    if (Input.GetMouseButtonDown(m_clickButton) && m_isLoaded)
-                    {
-                        Shoot(true);
-                    }
-                    break;
+                        if (Input.GetMouseButtonDown(m_clickButton) && m_isLoaded)
+                        {
+                            Shoot(true);
+                        }
+                        break;
 
-                case (WeaponFather.LoadTypes.ClickReload):
-                    if (Input.GetMouseButtonDown(m_clickButton) && !m_isReloading)
-                    {
-                        if (m_isLoaded)
+                    case (WeaponFather.LoadTypes.ClickReload):
+                        if (Input.GetMouseButtonDown(m_clickButton) && !m_isReloading)
+                        {
+                            if (m_isLoaded)
+                            {
+                                Shoot(false);
+
+                                m_isLoaded = false;
+                            }
+                            else
+                            {
+
+                                StartCoroutine(Reload());
+                            }
+                        }
+
+                        break;
+
+                    case (WeaponFather.LoadTypes.OnClick):
+
+                        if (Input.GetMouseButtonDown(m_clickButton))
                         {
                             Shoot(false);
 
-                            m_isLoaded = false;
                         }
-                        else
-                        {
+                        break;
 
-                            StartCoroutine(Reload());
-                        }
-                    }
-
-                    break;
-
-                case (WeaponFather.LoadTypes.OnClick):
-
-                    if (Input.GetMouseButtonDown(m_clickButton))
-                    {
-                        Shoot(false);
-
-                    }
-                    break;
+                }
+                
 
             }
+           
             m_actualWeaponHeat -= m_actualWeapon.m_CoolingSpeed * Time.deltaTime;
 
 
@@ -101,8 +108,11 @@ public class GunController : MonoBehaviour
             m_actualWeaponHeat = Mathf.Clamp(m_actualWeaponHeat, 0, m_actualWeapon.m_MaxHeat);
         }
 
-
         GameManager.m_instance.m_SceneUI.m_WeaponHeatFillUI1.fillAmount = m_actualWeaponHeat / m_actualWeapon.m_MaxHeat;
+        GameManager.m_instance.m_SceneUI.m_playerAmmo1Text.text = m_actualWeaponAmmo + " / " +  m_actualWeapon.m_MaxAmmo;
+        float l_HeatPert = (m_actualWeaponHeat / m_actualWeapon.m_MaxHeat) * 100f;
+        l_HeatPert = Mathf.RoundToInt(l_HeatPert);
+        GameManager.m_instance.m_SceneUI.m_PLayerWeaponHeat1Text.text = l_HeatPert + " % ";
     }
 
 
@@ -162,9 +172,8 @@ public class GunController : MonoBehaviour
                     Vector3 _dir = GetMouseDir(this);
                     CreateBullet(_dir, GetSpawnPosition(_dir));
                 }
-
-
-
+                m_actualWeaponAmmo -= 1;
+                m_actualWeaponAmmo = Mathf.Clamp(m_actualWeaponAmmo,0, m_actualWeapon.m_MaxAmmo);
                 yield return new WaitForSeconds(m_actualWeapon.m_TimeBetweenShoots / 2);
 
                 l_burstCounter++;
@@ -255,7 +264,7 @@ public class GunController : MonoBehaviour
        
         m_MyGunRenderer.sprite = m_actualWeapon.m_MySprite;
 
-       
+        m_actualWeaponAmmo = m_actualWeapon.m_MaxAmmo;
 
         m_actualBullet = m_NewBullet;
 

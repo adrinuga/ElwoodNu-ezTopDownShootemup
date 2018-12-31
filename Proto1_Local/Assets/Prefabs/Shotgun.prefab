@@ -56,7 +56,7 @@ MonoBehaviour:
   - Boomer
   - Shotgun
   m_DefaultDamage: 60
-  m_MaxAmmo: 30
+  m_MaxAmmo: 40
   m_TimeBetweenShoots: 0.4
   m_MaxHeat: 100
   m_HeatPerShoot: 40

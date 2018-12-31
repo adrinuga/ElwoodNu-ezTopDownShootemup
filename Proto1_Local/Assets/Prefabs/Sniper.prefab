@@ -56,7 +56,7 @@ MonoBehaviour:
   - HeadBlower
   - QuickScoper
   m_DefaultDamage: 30
-  m_MaxAmmo: 200
+  m_MaxAmmo: 60
   m_TimeBetweenShoots: 0.7
   m_MaxHeat: 100
   m_HeatPerShoot: 50

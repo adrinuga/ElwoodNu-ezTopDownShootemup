@@ -818,7 +818,7 @@ PrefabInstance:
     - target: {fileID: 720398749, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
       propertyPath: m_defaultWeapon
       value: 
-      objectReference: {fileID: 6885245154669645767, guid: e33bb4dd1c19a424d83c134e669b07ec,
+      objectReference: {fileID: 6885245154669645767, guid: 944fd45427dcbb244b1d0c5899a661dd,
         type: 3}
     - target: {fileID: 732949509, guid: 2b754f438f24f2f449c97220f47517b3, type: 3}
       propertyPath: m_FlipX

@@ -57,7 +57,7 @@ MonoBehaviour:
   - Boomstick
   m_DefaultDamage: 5
   m_MaxAmmo: 200
-  m_TimeBetweenShoots: 0
+  m_TimeBetweenShoots: 0.15
   m_MaxHeat: 100
   m_HeatPerShoot: 15
   m_TotalCoolingSpeed: 40
